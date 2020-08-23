@@ -8,7 +8,7 @@
 
 - 进入到apache-tomcat-8.5.54-src目录中，创建文件夹名为home，并将conf和webapps文件夹移动到home文件夹中
 
-  ![image-20200422210452156](image-20200422210452156.png)
+  ![image-20200422210452156](https://raw.githubusercontent.com/Davis-Samuel/Tomcat_principle/master/20180518194018254.png)
 
 - 然后在apache-tomcat-8.5.54-src目录下创建pom.xml文件，并引入依赖。
 
@@ -99,9 +99,9 @@
 
 - 配置启动类，步骤
 
-  ![image-20200422212449988](image-20200422212449988.png)
+  ![image-20200422212449988](https://raw.githubusercontent.com/Davis-Samuel/Tomcat_principle/master/image-20200422212449988.png)
 
-  ![image-20200422212946566](image-20200422212946566.png)
+  ![image-20200422212946566](https://raw.githubusercontent.com/Davis-Samuel/Tomcat_principle/master/image-20200422212946566.png)
 
   ```properties
   -Dcatalina.home=D:\MY\已安装\Java开发\Java.IDEA.Maven\Java.IDEA.Maven程序\Tomca核心原理_itcast_project_tomcat\apache-tomcat-8.5.54-src\home
@@ -206,7 +206,7 @@
 
 - 运行项目，访问http://localhost:8080，得到结果：
 
-  ![image-20200422214022633](image-20200422214022633.png)
+  ![image-20200422214022633](https://raw.githubusercontent.com/Davis-Samuel/Tomcat_principle/master/image-20200422214022633.png)
 
 - 原因是我们直接启动org.apache.catalina.startup.Bootstrap的时候没有加载org.apache.jasper.servlet.JasperInitializer，从而无法编译JSP。解决办法是在tomcat的源码org.apache.catalina.startup.ContextConfig中的configureStart函数中手动将JSP解析器初始化：双击shift键直接复制搜索即可：
 
@@ -233,7 +233,7 @@
 
 - 运行结果
 
-  ![tomcat源码运行](tomcat源码运行.png)
+  ![tomcat源码运行](https://raw.githubusercontent.com/Davis-Samuel/Tomcat_principle/master/tomcat源码运行.png)
 
 ## 2.工具
 
@@ -243,11 +243,11 @@
 
 ## 3.结果
 
-- ![tomcat源码运行](tomcat源码运行.png)
+- ![tomcat源码运行](https://raw.githubusercontent.com/Davis-Samuel/Tomcat_principle/master/tomcat源码运行.png)
 
 ## 4.理解
 
-- ![20180518194018254](20180518194018254.png)
+- ![20180518194018254](https://raw.githubusercontent.com/Davis-Samuel/Tomcat_principle/master/20180518194018254.png)
 
   在server.xml中，每创建一个web工程并将其运行，就会在host标签中创建一个context标签，path为servlet的地址。
 
